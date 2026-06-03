@@ -56,9 +56,13 @@ initial begin
 
     en = 1;
 
-        for (int i = 0; i < 8; i++) begin
+      for (int d = 0; d < 2; d++) begin
+
+    din = d;
+
+    for (int i = 0; i < 8; i++) begin
+
         sel = i[2:0];
-        din = 1'b1;
 
         refmod(en, sel, din, expected);
 
@@ -66,17 +70,37 @@ initial begin
         #1;
 
         if (dout !== expected) begin
-            $display("FAIL: sel=%0d din=%0b expected=%b got=%b",
-                     sel, din, expected, dout);
+
+            $display(
+                "FAIL: din=%0b sel=%0d expected=%b got=%b",
+                din,
+                sel,
+                expected,
+                dout
+            );
+
             mismatch++;
-        end else begin
-            $display("PASS: sel=%0d din=%0b expected=%b got=%b",
-                     sel, din, expected, dout);
+
+        end
+        else begin
+
+            $display(
+                "PASS: din=%0b sel=%0d expected=%b got=%b",
+                din,
+                sel,
+                expected,
+                dout
+            );
+
             match++;
+
         end
 
         tr++;
+
     end
+
+end
 
     $display("\n======================");
     $display("FINAL REPORT");
