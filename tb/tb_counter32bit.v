@@ -49,7 +49,10 @@ counter_overflow uut (
 
 initial
 begin
-    $fsdbDumpvars();
+    //$fsdbDumpvars();
+    $dumpfile("sim/counter_overflow_tb.vcd");
+    $dumpvars(0, counter_overflow_tb);
 end
+
 
 endmodule

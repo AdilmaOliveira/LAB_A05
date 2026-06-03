@@ -42,8 +42,13 @@ updowncounter uut (
     .down_counter(down_counter)
 );
 
-initial begin
+/*initial begin
     $fsdbDumpvars(0, updown_counter_tb);
+end*/
+
+initial begin
+    $dumpfile("sim/updown_counter_tb.vcd");
+    $dumpvars(0, updown_counter_tb);
 end
 
 endmodule

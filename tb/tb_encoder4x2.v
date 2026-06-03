@@ -47,7 +47,7 @@ encoder4x2 uut (
 );
 
 initial begin
-    $dumpfile("encoder4x2_tb.vcd");
+    $dumpfile("sim/encoder4x2_tb.vcd");
     $dumpvars(0, encoder4x2_tb);
 end
 

@@ -57,16 +57,10 @@ module adder_tb;
     .carry_out(carry_out)
   );
 
-  reg [8*200:1] fsdb_name;
+initial begin
+  $dumpfile("sim/adder32_tb.vcd");
+  $dumpvars(0, adder_tb);
 
-  initial begin
-    if (!$value$plusargs("FSDB=%s", fsdb_name))
-      fsdb_name = "adder32.fsdb";
-
-    $display("[TB] FSDB file = %0s", fsdb_name);
-    $fsdbDumpfile(fsdb_name);
-    $fsdbDumpvars();
-
-    #1000 $finish;
-  end
+  #1000 $finish;
+end
 endmodule

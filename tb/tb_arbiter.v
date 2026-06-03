@@ -83,10 +83,19 @@ module arbiter_tb;
   end
 
   //--------------------------------------------------------------------------
-  // Dump
+  // Dump VCS/VERDI
   //--------------------------------------------------------------------------
-  initial begin
-      $fsdbDumpvars();
-  end
+  //initial begin
+  //    $fsdbDumpvars();
+  //end
+
+
+  //--------------------------------------------------------------------------
+  // Dump Icarus Verilog + GTKWave
+  //--------------------------------------------------------------------------
+initial begin
+    $dumpfile("sim/arbiter_tb.vcd");
+    $dumpvars(0, arbiter_tb);
+end
 
 endmodule
