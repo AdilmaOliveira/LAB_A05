@@ -27,6 +27,18 @@ run_mux_self:
 
 wave_mux_self:
 	gtkwave sim/mux8x1_selfcheck.vcd
+run_decoder:
+	iverilog -g2012 -o sim/decoder.out rtl/decoder2x4.v tb/tb_decoder2x4.v
+	vvp sim/decoder.out
 
+wave_decoder:
+	gtkwave sim/decoder2x4_tb.vcd
 clean:
 	rm -f sim/*.out sim/*.vcd
+
+run_decoder_self:
+	iverilog -g2012 -o sim/decoder_self.out rtl/decoder2x4.v tb/tb_decoder2x4_selfcheck.sv
+	vvp sim/decoder_self.out
+
+wave_decoder_self:
+	gtkwave sim/decoder2x4_selfcheck.vcd
