@@ -42,9 +42,7 @@ end
 
 initial
 begin
-    $dumpfile("sim/multiplier_tb.vcd");
-    $dumpvars(0, multiplier_tb);
-   
+    $fsdbDumpvars();
 end
 
 endmodule

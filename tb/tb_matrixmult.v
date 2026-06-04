@@ -45,7 +45,7 @@ matrix2x2_mult uut (
 );
 
 initial begin
-    $dumpfile("matrix2x2_mult_tb.vcd");
+    $dumpfile("sim/matrix2x2_mult_tb.vcd");
     $dumpvars(0, matrix2x2_mult_tb);
 end
 

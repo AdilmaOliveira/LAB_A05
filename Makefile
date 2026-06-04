@@ -106,3 +106,27 @@ run_adder_self:
 
 wave_adder_self:
 	gtkwave sim/adder32_selfcheck.vcd
+run_multiplier:
+	iverilog -g2012 -o sim/multiplier.out rtl/multiplier16x16.v tb/tb_multiplier16x16.v
+	vvp sim/multiplier.out
+
+wave_multiplier:
+	gtkwave sim/multiplier_tb.vcd
+run_multiplier_self:
+	iverilog -g2012 -o sim/multiplier_self.out rtl/multiplier16x16.v tb/tb_multiplier16x16_selfcheck.sv
+	vvp sim/multiplier_self.out
+
+wave_multiplier_self:
+	gtkwave sim/multiplier_selfcheck.vcd
+run_matrix:
+	iverilog -g2012 -o sim/matrix.out rtl/matrixmult.v tb/tb_matrixmult.v
+	vvp sim/matrix.out
+
+wave_matrix:
+	gtkwave sim/matrix2x2_mult_tb.vcd
+run_matrix_self:
+	iverilog -g2012 -o sim/matrix_self.out rtl/matrixmult.v tb/tb_matrixmult_selfcheck.sv
+	vvp sim/matrix_self.out
+
+wave_matrix_self:
+	gtkwave sim/matrix2x2_mult_selfcheck.vcd
